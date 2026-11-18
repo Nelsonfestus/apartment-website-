@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Apartments DFW · Thoughtfully Managed Communities. Effortless Living.</title>
+<meta name="description" content="All bills paid apartment living across two flagship Dallas–Fort Worth communities. One, two and three bedroom floor plans, gated surroundings, prime DFW locations." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" />
+<style>
+  :root{
+    --bg:hsl(45 29% 97%); --fg:hsl(240 3% 11%); --card:#fff;
+    --primary:hsl(156 28% 14%); --primary-fg:hsl(45 29% 97%);
+    --accent:hsl(37 34% 57%); --secondary:hsl(40 24% 93%);
+    --muted-fg:hsl(240 4% 37%); --border:hsl(40 16% 87%);
+    --radius:14px; --serif:"Cormorant Garamond",Georgia,serif;
+    --sans:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif;
+    --shadow:0 44px 90px -55px rgba(28,28,30,.5);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:17px;line-height:1.65}
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:300;letter-spacing:-.015em;line-height:1.06}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  ::selection{background:hsl(37 34% 57% / .35)}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+  @media(min-width:1024px){.wrap{padding:0 40px}}
+
+  .eyebrow{display:flex;align-items:center;gap:12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.3em;color:var(--muted-fg)}
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--accent);flex:none}
+  .eyebrow.light{color:rgba(255,255,255,.6)}
+  .eyebrow.light::before{background:var(--accent)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;padding:16px 26px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.18em;border:1px solid transparent;transition:.3s ease;cursor:pointer;font-family:var(--sans)}
+  .btn-primary{background:var(--primary);color:var(--primary-fg)}
+  .btn-primary:hover{background:hsl(156 28% 20%);box-shadow:0 18px 40px -18px rgba(26,46,38,.65)}
+  .btn-outline{border-color:rgba(28,28,30,.2);color:var(--fg)}
+  .btn-outline:hover{border-color:rgba(28,28,30,.6);background:rgba(28,28,30,.03)}
+  .btn-gold{background:var(--accent);color:var(--fg)}
+  .btn-gold:hover{filter:brightness(1.06)}
+  .btn-white{background:#fff;color:var(--primary)}
+  .btn-white:hover{background:rgba(255,255,255,.9)}
+  .btn-ghost{border-color:rgba(255,255,255,.25);color:#fff}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* header */
+  header{position:sticky;top:0;z-index:60;border-bottom:1px solid transparent;background:hsl(45 29% 97% / .55);backdrop-filter:blur(14px);transition:.4s ease}
+  header.scrolled{background:hsl(45 29% 97% / .92);border-bottom-color:var(--border);box-shadow:0 10px 30px -24px rgba(28,28,30,.4)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-mark{width:40px;height:40px;border-radius:999px;border:1px solid hsl(37 34% 57% / .6);display:grid;place-items:center;font-family:var(--serif);font-size:15px;letter-spacing:.02em;color:var(--primary);flex:none}
+  .brand-name{font-family:var(--serif);font-size:19px;line-height:1.1;color:var(--fg)}
+  .brand-sub{font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.26em;color:var(--muted-fg);margin-top:3px}
+  .nav-links{display:none;align-items:center;gap:30px}
+  @media(min-width:1024px){.nav-links{display:flex}}
+  .nav-links a{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:var(--muted-fg);padding-bottom:4px;border-bottom:1px solid transparent;transition:.25s}
+  .nav-links a:hover,.nav-links a.active{color:var(--fg);border-bottom-color:var(--accent)}
+  .nav-actions{display:flex;align-items:center;gap:10px}
+  .nav-actions .btn{padding:12px 18px;font-size:10px}
+  .nav-phone{display:none}
+  @media(min-width:640px){.nav-phone{display:inline-flex}}
+  .burger{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;border:1px solid var(--border);background:transparent;cursor:pointer}
+  @media(min-width:1024px){.burger{display:none}}
+  .mobile-menu{display:none;border-top:1px solid var(--border);background:var(--bg)}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block;padding:14px 24px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.18em;color:var(--muted-fg);border-bottom:1px solid hsl(40 16% 87% / .6)}
+
+  /* pages */
+  .page{display:none}
+  .page.active{display:block;animation:fade .5s ease both}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  /* home hero */
+  .hero{display:grid;gap:48px;padding:56px 0 64px;align-items:center}
+  @media(min-width:1024px){.hero{grid-template-columns:1.05fr 1fr;gap:72px;padding:76px 0 96px}}
+  .hero h1{font-size:clamp(2.6rem,5.6vw,4.8rem);margin-top:26px}
+  .hero h1 em{font-style:italic;color:var(--primary)}
+  .hero p.lede{margin-top:30px;max-width:34rem;color:var(--muted-fg)}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px;padding-top:30px;border-top:1px solid var(--border);max-width:30rem}
+  .stats dt{font-family:var(--serif);font-size:34px;line-height:1;color:var(--primary)}
+  .stats dd{margin-top:8px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.22em;color:var(--muted-fg)}
+  .hero-media{position:relative}
+  .frame{border:1px solid hsl(37 34% 57% / .3);border-radius:var(--radius);padding:6px;overflow:hidden}
+  .frame img{width:100%;height:340px;object-fit:cover;border-radius:10px;transition:transform 1s ease}
+  @media(min-width:640px){.frame img{height:440px}}
+  @media(min-width:1024px){.frame img{height:600px}}
+  .frame:hover img{transform:scale(1.04)}
+  .floating{position:absolute;left:50%;bottom:-20px;transform:translateX(-50%);width:85%;background:hsl(0 0% 100% / .96);border:1px solid var(--border);border-radius:var(--radius);padding:16px 22px;backdrop-filter:blur(8px);box-shadow:0 24px 60px -40px rgba(28,28,30,.55)}
+  @media(min-width:640px){.floating{left:24px;transform:none;width:auto}}
+  .floating .tag{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.24em;color:var(--accent)}
+  .floating p{font-family:var(--serif);font-size:18px;margin-top:5px}
+
+  /* sections */
+  section.band{padding:76px 0}
+  @media(min-width:1024px){section.band{padding:104px 0}}
+  .band.tint{background:hsl(40 24% 93% / .5);border-top:1px solid hsl(40 16% 87% / .7)}
+  .band.dark{background:var(--primary);color:var(--primary-fg)}
+  .section-head{display:flex;flex-direction:column;gap:24px}
+  @media(min-width:768px){.section-head{flex-direction:row;align-items:flex-end;justify-content:space-between}}
+  .section-head h2{font-size:clamp(2rem,3.6vw,3.2rem);margin-top:20px;max-width:34rem}
+  .section-head p{max-width:24rem;font-size:15px;color:var(--muted-fg)}
+
+  .cards{display:grid;gap:28px;margin-top:48px}
+  @media(min-width:1024px){.cards{grid-template-columns:1fr 1fr;gap:36px}}
+  .pcard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:.5s ease}
+  .pcard:hover{transform:translateY(-4px);border-color:hsl(37 34% 57% / .4);box-shadow:var(--shadow)}
+  .pcard-media{position:relative;overflow:hidden}
+  .pcard-media img{width:100%;height:280px;object-fit:cover;transition:transform 1s ease}
+  @media(min-width:640px){.pcard-media img{height:340px}}
+  .pcard:hover .pcard-media img{transform:scale(1.05)}
+  .pill{position:absolute;top:20px;border-radius:999px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;padding:8px 15px}
+  .pill.gold{left:20px;background:var(--accent);color:var(--fg)}
+  .pill.dark{right:20px;background:hsl(240 3% 11% / .7);color:var(--bg);backdrop-filter:blur(6px)}
+  .pcard-body{padding:28px}
+  @media(min-width:1024px){.pcard-body{padding:34px}}
+  .pcard-body h3{font-size:clamp(1.6rem,2.4vw,2.05rem)}
+  .pcard-addr{display:flex;gap:8px;align-items:flex-start;margin-top:10px;font-size:13.5px;color:var(--muted-fg)}
+  .pcard-body p.blurb{margin-top:18px;font-size:15px;color:var(--muted-fg)}
+  .pcard-foot{display:flex;align-items:center;gap:8px;margin-top:22px;padding-top:18px;border-top:1px solid var(--border);font-size:13px;font-weight:500}
+  .pcard-foot span.dot{width:6px;height:6px;border-radius:999px;background:var(--accent)}
+  .link-more{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--primary);transition:.25s}
+  .link-more:hover{color:var(--accent)}
+
+  .pillars{display:grid;gap:20px;margin-top:48px}
+  @media(min-width:640px){.pillars{grid-template-columns:1fr 1fr}}
+  @media(min-width:1024px){.pillars{grid-template-columns:repeat(4,1fr)}}
+  .pillar{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px}
+  .pillar .num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.1em}
+  .pillar h3{font-size:22px;margin-top:14px;line-height:1.2}
+  .pillar p{font-size:14px;color:var(--muted-fg);margin-top:12px;line-height:1.6}
+
+  .cta{display:flex;flex-direction:column;gap:36px}
+  @media(min-width:1024px){.cta{flex-direction:row;align-items:center;justify-content:space-between}}
+  .cta h2{font-size:clamp(1.9rem,3.2vw,2.8rem);margin-top:20px;color:#fff}
+  .cta p{margin-top:16px;max-width:26rem;font-size:15px;color:rgba(255,255,255,.6)}
+  .cta-actions{display:flex;flex-direction:column;gap:12px}
+  @media(min-width:640px){.cta-actions{flex-direction:row;flex-wrap:wrap}}
+
+  /* property page */
+  .phero{position:relative;height:clamp(380px,52vw,560px);overflow:hidden;background:var(--primary)}
+  .phero img{width:100%;height:100%;object-fit:cover;opacity:.62}
+  .phero-inner{position:absolute;inset:0;display:flex;align-items:flex-end}
+  .phero-inner .wrap{width:100%;padding-bottom:44px;color:#fff}
+  .phero h1{font-size:clamp(2.2rem,5vw,4rem);color:#fff;margin-top:18px}
+  .phero .addr{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:13.5px;color:rgba(255,255,255,.75)}
+  .phero .blurb{margin-top:16px;max-width:36rem;font-size:15px;color:rgba(255,255,255,.72)}
+  .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .badge{border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:8px 15px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:#fff}
+
+  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(min-width:768px){.gallery{grid-template-columns:repeat(3,1fr);gap:16px}}
+  .gallery figure{overflow:hidden;border-radius:12px;cursor:zoom-in;background:var(--secondary)}
+  .gallery figure:first-child{grid-column:span 2}
+  .gallery img{width:100%;height:200px;object-fit:cover;transition:transform .8s ease}
+  @media(min-width:768px){.gallery img{height:260px}}
+  .gallery figure:first-child img{height:220px}
+  @media(min-width:768px){.gallery figure:first-child img{height:420px}}
+  .gallery figure:hover img{transform:scale(1.05)}
+
+  .split{display:grid;gap:32px;margin-top:44px}
+  @media(min-width:1024px){.split{grid-template-columns:1.6fr 1fr;gap:44px;align-items:start}}
+  .plans{display:grid;gap:16px}
+  .plan{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:14px}
+  .plan h4{font-size:26px}
+  .plan p{font-size:14px;color:var(--muted-fg)}
+  .plan ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+  .plan li{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--primary);background:var(--secondary);border-radius:999px;padding:7px 13px}
+  .aside{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:0 40px 90px -70px rgba(28,28,30,.6)}
+  @media(min-width:1024px){.aside{position:sticky;top:96px}}
+  .aside .tag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.24em;color:var(--accent)}
+  .aside h3{font-size:26px;margin-top:12px}
+  .aside .row{display:flex;align-items:flex-start;gap:10px;margin-top:16px;font-size:13.5px;color:var(--muted-fg)}
+  .aside .row strong{color:var(--fg);font-weight:500}
+  .aside .btns{display:grid;gap:10px;margin-top:24px}
+  .aside .btns .btn{width:100%;padding:14px 20px;font-size:10px}
+  .aside .hours{margin-top:22px;padding-top:20px;border-top:1px solid var(--border)}
+  .aside .hours p{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.22em;color:var(--muted-fg)}
+  .aside .hours ul{list-style:none;margin-top:10px;display:grid;gap:4px;font-size:12.5px;color:rgba(28,28,30,.75)}
+
+  .amen{display:grid;gap:24px;margin-top:44px}
+  @media(min-width:768px){.amen{grid-template-columns:1fr 1fr;gap:32px}}
+  .amen-group{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:30px}
+  .amen-group h4{font-size:24px}
+  .amen-group .cap{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--muted-fg);margin-top:8px}
+  .amen-group ul{list-style:none;margin-top:22px;display:grid;gap:11px}
+  @media(min-width:640px){.amen-group ul{grid-template-columns:1fr 1fr}}
+  .amen-group li{position:relative;padding-left:18px;font-size:13.5px;color:rgba(28,28,30,.8)}
+  .amen-group li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:999px;background:var(--accent)}
+
+  .hood{display:grid;gap:32px;margin-top:44px}
+  @media(min-width:1024px){.hood{grid-template-columns:1fr 1fr;gap:44px;align-items:start}}
+  .hood-list{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+  .hood-row{background:var(--card);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .hood-row strong{font-size:14.5px;font-weight:500}
+  .hood-row span{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--muted-fg)}
+  .map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--secondary);display:grid;place-items:center;min-height:260px;padding:32px;text-align:center}
+  .map a{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--primary);margin-top:14px;border-bottom:1px solid var(--accent);padding-bottom:4px}
+
+  /* contact */
+  .contact-grid{display:grid;gap:40px;padding:56px 0 80px}
+  @media(min-width:1024px){.contact-grid{grid-template-columns:1fr 1.05fr;gap:64px;padding:72px 0 100px}}
+  .contact-grid h1{font-size:clamp(2.2rem,4.6vw,3.6rem);margin-top:22px}
+  .contact-grid .lede{margin-top:22px;color:var(--muted-fg);max-width:32rem}
+  .contact-block{margin-top:36px;display:grid;gap:14px}
+  .cline{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;transition:.25s}
+  .cline:hover{border-color:hsl(37 34% 57% / .5);box-shadow:0 24px 50px -44px rgba(28,28,30,.6)}
+  .cline .lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--muted-fg)}
+  .cline .val{font-size:15px;font-weight:500;margin-top:3px}
+  .loc-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+  .loc-card .tag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.22em;color:var(--accent)}
+  .loc-card h3{font-size:20px;margin-top:8px}
+  .loc-card p{font-size:12.5px;color:var(--muted-fg);margin-top:10px}
+  .loc-card .hrs{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-size:12px;color:rgba(28,28,30,.75)}
+  .locs{display:grid;gap:14px;margin-top:20px}
+  @media(min-width:640px){.locs{grid-template-columns:1fr 1fr}}
+
+  form.inquiry{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:0 40px 90px -65px rgba(28,28,30,.6)}
+  @media(min-width:1024px){form.inquiry{padding:40px}}
+  form.inquiry h2{font-size:clamp(1.6rem,2.6vw,2.05rem);margin-top:12px}
+  .fields{display:grid;gap:18px;margin-top:26px}
+  @media(min-width:640px){.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}}
+  label{display:block;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--muted-fg);margin-bottom:8px}
+  input,select,textarea{width:100%;border:1px solid var(--border);background:var(--card);border-radius:12px;padding:13px 16px;font-family:var(--sans);font-size:15px;color:var(--fg);transition:.2s}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:hsl(156 28% 14% / .4);box-shadow:0 0 0 3px hsl(156 28% 14% / .08)}
+  textarea{resize:vertical;min-height:110px}
+  .fine{font-size:11px;color:var(--muted-fg);text-align:center;margin-top:14px;line-height:1.6}
+  .thanks{background:var(--card);border:1px solid hsl(37 34% 57% / .3);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
+  .thanks h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:20px}
+  .thanks p{color:var(--muted-fg);margin-top:12px;font-size:15px}
+  .thanks .btns{display:flex;flex-direction:column;gap:10px;margin-top:26px}
+  @media(min-width:640px){.thanks .btns{flex-direction:row}}
+  .thanks .btns .btn{flex:1}
+
+  /* footer */
+  footer{background:var(--primary);color:rgba(255,255,255,.72);padding:60px 0 34px;margin-top:0}
+  .foot-grid{display:grid;gap:36px}
+  @media(min-width:768px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr;gap:48px}}
+  footer .brand-name{color:#fff}
+  footer .brand-sub{color:rgba(255,255,255,.5)}
+  footer .brand-mark{border-color:hsl(37 34% 57% / .6);color:#fff}
+  footer p.about{margin-top:18px;font-size:13.5px;max-width:24rem;line-height:1.7}
+  footer h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.24em;color:rgba(255,255,255,.45);font-family:var(--sans)}
+  footer ul{list-style:none;margin-top:16px;display:grid;gap:10px;font-size:13.5px}
+  footer a:hover{color:var(--accent)}
+  .foot-bottom{margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.45)}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:100;background:rgba(15,15,16,.92);display:none;place-items:center;padding:24px}
+  .lb.open{display:grid}
+  .lb img{max-width:min(1100px,92vw);max-height:86vh;object-fit:contain;border-radius:8px}
+  .lb button{position:absolute;top:22px;right:22px;background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;width:42px;height:42px;border-radius:999px;cursor:pointer;font-size:18px;line-height:1}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="wrap">
+    <div class="nav">
+      <a href="#home" class="brand" data-nav>
+        <span class="brand-mark">DFW</span>
+        <span>
+          <span class="brand-name">Apartments DFW</span>
+          <span class="brand-sub">Managed Communities</span>
+        </span>
+      </a>
+      <nav class="nav-links" id="nav-links">
+        <a href="#home" data-nav>Home</a>
+        <a href="#arlington-village" data-nav>Arlington Village</a>
+        <a href="#property-2" data-nav>The Bellamy</a>
+        <a href="#contact" data-nav>Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="tel:+18172654677" class="btn btn-outline nav-phone">(817) 265-4677</a>
+        <a href="#contact" class="btn btn-primary" data-nav>Schedule a Tour</a>
+        <button class="burger" id="burger" aria-label="Open menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#home" data-nav>Home</a>
+    <a href="#arlington-village" data-nav>Arlington Village</a>
+    <a href="#property-2" data-nav>The Bellamy</a>
+    <a href="#contact" data-nav>Contact</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HOME -->
+  <div class="page active" id="page-home">
+    <div class="wrap">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">Dallas–Fort Worth · Residential Portfolio</p>
+          <h1>Thoughtfully Managed<br />Communities.<br /><em>Effortless Living.</em></h1>
+          <p class="lede">Spacious one, two and three bedroom floor plans with all-bills-paid convenience, gated surroundings and prime Dallas–Fort Worth locations — managed by a team that answers the phone.</p>
+          <div class="hero-actions">
+            <a href="#communities" class="btn btn-primary">Explore Properties &rarr;</a>
+            <a href="#contact" class="btn btn-outline" data-nav>Schedule a Tour</a>
+          </div>
+          <dl class="stats">
+            <div><dt>457</dt><dd>Residences</dd></div>
+            <div><dt>2</dt><dd>Communities</dd></div>
+            <div><dt>DFW</dt><dd>Metroplex</dd></div>
+          </dl>
+        </div>
+        <div class="hero-media">
+          <div class="frame"><img src="https://media.base44.com/images/public/6afaec581991c92f742457b6/922a82d94_generated_121e7ad4.png" alt="Sunlit exterior of a luxury DFW apartment community" /></div>
+          <div class="floating">
+            <p class="tag">Now leasing</p>
+            <p>All Bills Paid · Arlington Village Apartments</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="band tint" id="communities">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Two Flagship Communities</p>
+            <h2>Choose the community that fits your life.</h2>
+          </div>
+          <p>Two distinct settings, one standard of care: responsive on-site teams, immaculate grounds and homes that feel considered the moment you walk in.</p>
+        </div>
+        <div class="cards" id="home-cards"></div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <p class="eyebrow">Why Residents Stay</p>
+        <h2 style="font-size:clamp(2rem,3.6vw,3.2rem);margin-top:20px;max-width:34rem">The details that make a home feel effortless.</h2>
+        <div class="pillars">
+          <div class="pillar"><p class="num">01</p><h3>All-Inclusive Living</h3><p>At Arlington Village, utilities are wrapped into one simple monthly payment — no surprise bills, no separate accounts.</p></div>
+          <div class="pillar"><p class="num">02</p><h3>24-Hour Maintenance</h3><p>Onsite teams and after-hours response, so a dripping faucet never waits until Monday.</p></div>
+          <div class="pillar"><p class="num">03</p><h3>Gated Security &amp; Peace of Mind</h3><p>Controlled access, secure parking and a courtesy security monitor across the property.</p></div>
+          <div class="pillar"><p class="num">04</p><h3>Prime DFW Connectivity</h3><p>Quick access to I-30, UTA, the stadium district and the shopping and dining that surround them.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band dark">
+      <div class="wrap cta">
+        <div>
+          <p class="eyebrow light">Ready When You Are</p>
+          <h2>Call, text, or book a tour today.</h2>
+          <p>Our leasing team answers seven days a week — and we will walk you through availability, pricing and all-bills-paid details for both communities.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="tel:+18172654677" class="btn btn-ghost">(817) 265-4677</a>
+          <a href="sms:+18172654677" class="btn btn-gold">Text Us Now</a>
+          <a href="#contact" class="btn btn-white" data-nav>Book a Tour</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PROPERTY PAGES (rendered) -->
+  <div class="page" id="page-arlington-village"></div>
+  <div class="page" id="page-property-2"></div>
+
+  <!-- CONTACT -->
+  <div class="page" id="page-contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <p class="eyebrow">Contact &amp; Tours</p>
+          <h1>Let's find your<br /><em style="font-style:italic;color:var(--primary)">next home.</em></h1>
+          <p class="lede">Tell us when you would like to move and which community caught your eye. A leasing consultant replies within one business day — or reach us directly any time.</p>
+
+          <div class="contact-block">
+            <a class="cline" href="tel:+18172654677">
+              <span>
+                <span class="lbl">Call the leasing team</span>
+                <span class="val">(817) 265-4677</span>
+              </span>
+            </a>
+            <a class="cline" href="sms:+18172654677">
+              <span>
+                <span class="lbl">Text us</span>
+                <span class="val">(817) 265-4677</span>
+              </span>
+            </a>
+            <a class="cline" href="mailto:info@apartmentsdfw.com">
+              <span>
+                <span class="lbl">Email</span>
+                <span class="val">info@apartmentsdfw.com</span>
+              </span>
+            </a>
+          </div>
+
+          <div class="locs" id="contact-locs"></div>
+        </div>
+
+        <div id="form-slot"></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">
+          <span class="brand-mark">DFW</span>
+          <span>
+            <span class="brand-name">Apartments DFW</span>
+            <span class="brand-sub">Managed Communities</span>
+          </span>
+        </div>
+        <p class="about">Two flagship Dallas–Fort Worth apartment communities, thoughtfully managed. All bills paid living, gated surroundings and responsive on-site teams.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#home" data-nav>Home</a></li>
+          <li><a href="#arlington-village" data-nav>Arlington Village</a></li>
+          <li><a href="#property-2" data-nav>The Bellamy at Arlington</a></li>
+          <li><a href="#contact" data-nav>Contact &amp; Tours</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Leasing</h4>
+        <ul>
+          <li><a href="tel:+18172654677">(817) 265-4677</a></li>
+          <li><a href="sms:+18172654677">Text us</a></li>
+          <li><a href="mailto:info@apartmentsdfw.com">info@apartmentsdfw.com</a></li>
+          <li>Mon–Fri 9 AM–5:30 PM · Sat 10 AM–2 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="year">2026</span> Apartments DFW. All rights reserved.</span>
+      <span>Equal Housing Opportunity</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lightbox">
+  <button id="lb-close" aria-label="Close">&times;</button>
+  <img id="lb-img" alt="" />
+</div>
+
+<script>
+const IMG = "https://media.base44.com/images/public/6afaec581991c92f742457b6/";
+const img = {
+  hero: IMG + "922a82d94_generated_121e7ad4.png",
+  arlingtonCard: IMG + "0c2a22e53_generated_5d051ac2.png",
+  secondCard: IMG + "5e00fa218_generated_0b3c977b.png",
+  living: IMG + "f49713bfe_generated_e8223be7.png",
+  kitchen: IMG + "8f0bf3f23_generated_5570cbcd.png",
+  bedroom: IMG + "f42cffb25_generated_306dc060.png",
+  courtyard: IMG + "4319fbcce_generated_8c7738df.png",
+  gate: IMG + "6a98d22eb_generated_352d9694.png",
+  balcony: IMG + "9a40c9ffe_generated_c54cbb16.png",
+  secondExterior: IMG + "5c31a4348_generated_eebb411b.png",
+  secondLiving: IMG + "84ef117f9_generated_ca786207.png",
+  secondKitchen: IMG + "648d10c0d_generated_add344b3.png",
+  secondBedroom: IMG + "30d2834a3_generated_d2577223.png",
+  terrace: IMG + "8b8f2fec7_generated_a210719a.png"
+};
+
+const hours = ["Mon – Fri: 9:00 AM – 5:30 PM", "Sat: 10:00 AM – 2:00 PM", "Sun: Closed"];
+
+const arlington = {
+  id: "arlington-village",
+  name: "Arlington Village Apartments",
+  shortName: "Arlington Village",
+  units: 280,
+  address: "408 N Fielder Rd, Arlington, TX 76012",
+  unitTypesLabel: "1, 2 & 3 Bedroom homes",
+  highlight: "All Bills Paid",
+  cardBlurb: "A gated, garden-style community rooted in north Arlington, with generous one, two and three bedroom homes — and utilities wrapped into one simple monthly payment.",
+  heroImage: img.gate,
+  cardImage: img.arlingtonCard,
+  heroBlurb: "All bills paid, walk-in closets, and a gated setting minutes from UTA, the stadium district and I-30.",
+  gallery: [
+    { src: img.gate, alt: "Gated entrance to Arlington Village Apartments" },
+    { src: img.living, alt: "Sunlit living room with oak floors" },
+    { src: img.kitchen, alt: "Open kitchen with quartz island" },
+    { src: img.bedroom, alt: "Calm bedroom with linen bedding" },
+    { src: img.courtyard, alt: "Courtyard with BBQ stations and picnic tables" },
+    { src: img.balcony, alt: "Private balcony overlooking the green courtyard" }
+  ],
+  floorPlans: [
+    { name: "1 Bedroom", blurb: "An efficient, light-filled layout with a generous living room, full kitchen and a walk-in closet.", features: ["Open living & dining", "Walk-in closet", "Refrigerator & range included"] },
+    { name: "2 Bedroom", blurb: "Two split bedrooms and room to host — ideal for roommates or a dedicated work-from-home space.", features: ["Two full bedrooms", "Walk-in closets", "Dishwasher included"] },
+    { name: "3 Bedroom", blurb: "Our largest floor plan: roomy bedrooms, ample storage and space for the whole household.", features: ["Three bedrooms", "Generous storage", "Select units with W/D connections"] }
+  ],
+  communityAmenities: ["All Bills Paid", "Gated community with secure parking", "Courtesy Security Monitor", "24-hour maintenance", "Two onsite laundry facilities", "BBQ stations & picnic areas", "Children's playground", "Community social events"],
+  interiorAmenities: ["Central air conditioning & heating", "Spacious floor plans", "Walk-in closets", "Refrigerators & cooking ranges", "Dishwashers", "Ceiling fans", "Hardwood flooring in select apartments", "Washer & dryer connections in select units"],
+  neighborhood: [
+    { name: "University of Texas at Arlington", note: "Minutes away" },
+    { name: "AT&T Stadium", note: "Stadium district" },
+    { name: "Globe Life Field", note: "Texas Rangers ballpark" },
+    { name: "Six Flags Over Texas", note: "Entertainment corridor" },
+    { name: "Interstate 30 (I-30)", note: "Direct DFW access" },
+    { name: "Shopping centers & restaurants", note: "Walkable to nearby retail" }
+  ],
+  email: "leasing@arlingtonvillageapartments.com",
+  phone: "(817) 265-4677",
+  phoneHref: "tel:+18172654677",
+  smsHref: "sms:+18172654677",
+  mapQuery: "408 N Fielder Rd, Arlington, TX 76012"
+};
+
+const bellamy = {
+  id: "property-2",
+  name: "The Bellamy at Arlington",
+  shortName: "The Bellamy",
+  units: 177,
+  address: "1420 W Pioneer Pkwy, Arlington, TX 76013",
+  unitTypesLabel: "1 & 2 Bedroom homes",
+  highlight: "Renovated Interiors",
+  cardBlurb: "A boutique 177-home community with renovated interiors, a rooftop amenity deck and covered parking, moments from downtown Arlington.",
+  heroImage: img.secondExterior,
+  cardImage: img.secondCard,
+  heroBlurb: "Quartz kitchens, in-unit laundry and a rooftop lounge — a smaller, quieter community with the same attentive management.",
+  gallery: [
+    { src: img.secondExterior, alt: "Exterior of the boutique apartment community" },
+    { src: img.secondLiving, alt: "Living space with floor-to-ceiling windows" },
+    { src: img.secondKitchen, alt: "Renovated kitchen with walnut cabinetry" },
+    { src: img.secondBedroom, alt: "Bedroom with linen drapery and reading chair" },
+    { src: img.terrace, alt: "Rooftop amenity deck with fire pit" }
+  ],
+  floorPlans: [
+    { name: "1 Bedroom", blurb: "A renovated one bedroom with an open kitchen, quartz counters and a private balcony or patio.", features: ["Open-concept kitchen", "Walk-in closet", "In-unit washer & dryer"] },
+    { name: "2 Bedroom", blurb: "Two bedrooms split for privacy, with generous storage, covered parking and room to entertain.", features: ["Split bedroom layout", "Quartz countertops", "In-unit washer & dryer"] }
+  ],
+  communityAmenities: ["Controlled-access entry", "Reserved covered parking", "Resort-style pool & sun deck", "24-hour fitness studio", "Rooftop lounge with fire pit", "Pet-friendly with dog run", "Package lockers", "24-hour emergency maintenance"],
+  interiorAmenities: ["Open-concept floor plans", "Quartz countertops", "Stainless steel appliances", "In-unit washer & dryer", "Walk-in closets", "Wood-style plank flooring", "Private balconies & patios", "Ceiling fans & central air"],
+  neighborhood: [
+    { name: "Downtown Arlington", note: "Minutes away" },
+    { name: "AT&T Stadium", note: "Stadium district" },
+    { name: "Globe Life Field", note: "Texas Rangers ballpark" },
+    { name: "University of Texas at Arlington", note: "Close by" },
+    { name: "I-30 & Cooper Street", note: "Direct DFW access" },
+    { name: "Arlington Highlands", note: "Shopping & dining" }
+  ],
+  email: "info@apartmentsdfw.com",
+  phone: "(817) 265-4677",
+  phoneHref: "tel:+18172654677",
+  smsHref: "sms:+18172654677",
+  mapQuery: "1420 W Pioneer Pkwy, Arlington, TX 76013"
+};
+
+const properties = [arlington, bellamy];
+
+/* home portfolio cards */
+document.getElementById("home-cards").innerHTML = properties.map((p) => `
+  <article class="pcard">
+    <div class="pcard-media">
+      <img src="${p.cardImage}" alt="${p.name} community" />
+      <span class="pill gold">${p.highlight}</span>
+      <span class="pill dark">${p.units} Units</span>
+    </div>
+    <div class="pcard-body">
+      <h3>${p.name}</h3>
+      <p class="pcard-addr">${p.address}</p>
+      <p class="blurb">${p.cardBlurb}</p>
+      <p class="pcard-foot"><span class="dot"></span>${p.unitTypesLabel}</p>
+      <a class="link-more" href="#${p.id}" data-nav>View ${p.shortName} &nearr;</a>
+    </div>
+  </article>`).join("");
+
+/* property pages */
+function renderProperty(p) {
+  const plans = p.floorPlans.map((f) => `
+    <div class="plan">
+      <h4>${f.name}</h4>
+      <p>${f.blurb}</p>
+      <ul>${f.features.map((x) => `<li>${x}</li>`).join("")}</ul>
+      <a class="link-more" href="#contact" data-nav>Check availability &rarr;</a>
+    </div>`).join("");
+
+  const gallery = p.gallery.map((g) => `
+    <figure data-full="${g.src}"><img src="${g.src}" alt="${g.alt}" loading="lazy" /></figure>`).join("");
+
+  const hood = p.neighborhood.map((n) => `
+    <div class="hood-row"><strong>${n.name}</strong><span>${n.note}</span></div>`).join("");
+
+  return `
+  <div class="phero">
+    <img src="${p.heroImage}" alt="${p.name}" />
+    <div class="phero-inner">
+      <div class="wrap">
+        <p class="eyebrow light">${p.units} Units · ${p.unitTypesLabel}</p>
+        <h1>${p.name}</h1>
+        <p class="addr">${p.address}</p>
+        <p class="blurb">${p.heroBlurb}</p>
+        <div class="badges"><span class="badge">${p.highlight}</span><span class="badge">Gated Community</span><span class="badge">24-Hour Maintenance</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Property Gallery</p>
+          <h2>A closer look inside.</h2>
+        </div>
+        <p>Tap any photograph to view it full size.</p>
+      </div>
+      <div class="gallery" style="margin-top:40px">${gallery}</div>
+    </div>
+  </section>
+
+  <section class="band tint">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Floor Plans</p>
+          <h2>Homes sized for real life.</h2>
+        </div>
+        <p>Availability changes weekly — call or text for today's openings and pricing.</p>
+      </div>
+      <div class="split">
+        <div class="plans">${plans}</div>
+        <aside class="aside">
+          <p class="tag">Leasing Office</p>
+          <h3>Schedule a private tour</h3>
+          <div class="row"><strong>${p.address}</strong></div>
+          <div class="row"><a href="${p.phoneHref}">${p.phone}</a></div>
+          <div class="row"><a href="mailto:${p.email}">${p.email}</a></div>
+          <div class="btns">
+            <a href="#contact" class="btn btn-primary" data-nav>Book a Tour</a>
+            <a href="${p.smsHref}" class="btn btn-outline">Text the Team</a>
+            <a href="${p.phoneHref}" class="btn btn-outline">Call ${p.phone}</a>
+          </div>
+          <div class="hours">
+            <p>Office Hours</p>
+            <ul>${hours.map((h) => `<li>${h}</li>`).join("")}</ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Amenities</p>
+          <h2>Everything included, nothing overlooked.</h2>
+        </div>
+        <p>Community comforts outside your door, and considered details within it.</p>
+      </div>
+      <div class="amen">
+        <div class="amen-group">
+          <h4>Community</h4>
+          <p class="cap">Shared spaces &amp; services</p>
+          <ul>${p.communityAmenities.map((a) => `<li>${a}</li>`).join("")}</ul>
+        </div>
+        <div class="amen-group">
+          <h4>Interior</h4>
+          <p class="cap">Inside every home</p>
+          <ul>${p.interiorAmenities.map((a) => `<li>${a}</li>`).join("")}</ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band tint">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">The Neighborhood</p>
+          <h2>Perfectly placed in Arlington.</h2>
+        </div>
+        <p>Minutes from work, school, stadiums and the everyday errands that matter.</p>
+      </div>
+      <div class="hood">
+        <div class="hood-list">${hood}</div>
+        <div class="map">
+          <div>
+            <p class="eyebrow" style="justify-content:center">Find Us</p>
+            <h3 style="font-size:24px;margin-top:12px">${p.address}</h3>
+            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.mapQuery)}" target="_blank" rel="noopener">Open in Google Maps &nearr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band dark">
+    <div class="wrap cta">
+      <div>
+        <p class="eyebrow light">Now Leasing</p>
+        <h2>Come see ${p.shortName} for yourself.</h2>
+        <p>Tours seven days a week by appointment. Ask about current specials and all-bills-paid details.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-white" data-nav>Book a Tour</a>
+        <a href="tel:+18172654677" class="btn btn-ghost">(817) 265-4677</a>
+      </div>
+    </div>
+  </section>`;
+}
+
+document.getElementById("page-arlington-village").innerHTML = renderProperty(arlington);
+document.getElementById("page-property-2").innerHTML = renderProperty(bellamy);
+
+/* contact location cards */
+document.getElementById("contact-locs").innerHTML = properties.map((p) => `
+  <div class="loc-card">
+    <p class="tag">${p.units} Units</p>
+    <h3>${p.name}</h3>
+    <p>${p.address}</p>
+    <p style="margin-top:6px"><a href="${p.phoneHref}">${p.phone}</a></p>
+    <div class="hrs">${hours.map((h) => `<div>${h}</div>`).join("")}</div>
+    <a class="link-more" href="#${p.id}" data-nav>View community &rarr;</a>
+  </div>`).join("");
+
+/* inquiry form (opens the visitor's email app, pre-filled) */
+document.getElementById("form-slot").innerHTML = `
+  <form class="inquiry" id="inquiry">
+    <p style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.24em;color:var(--accent)">Leasing Inquiry</p>
+    <h2>Request availability &amp; a private tour</h2>
+    <div class="fields">
+      <div class="two">
+        <div><label for="full_name">Full name</label><input id="full_name" name="full_name" required placeholder="Jordan Reyes" /></div>
+        <div><label for="email">Email address</label><input id="email" name="email" type="email" required placeholder="you@email.com" /></div>
+      </div>
+      <div class="two">
+        <div><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" required placeholder="(817) 000-0000" /></div>
+        <div><label for="move_in_date">Desired move-in date</label><input id="move_in_date" name="move_in_date" type="date" /></div>
+      </div>
+      <div>
+        <label for="property">Property of interest</label>
+        <select id="property" name="property">
+          <option value="Arlington Village Apartments">Arlington Village Apartments (280 Units)</option>
+          <option value="The Bellamy at Arlington">The Bellamy at Arlington (177 Units)</option>
+          <option value="Both Properties">Both Properties</option>
+        </select>
+      </div>
+      <div class="two">
+        <div>
+          <label for="floor_plan">Preferred floor plan</label>
+          <select id="floor_plan" name="floor_plan">
+            <option>1 Bedroom</option><option>2 Bedroom</option><option>3 Bedroom</option>
+          </select>
+        </div>
+        <div>
+          <label for="contact_method">Preferred contact method</label>
+          <select id="contact_method" name="contact_method">
+            <option>Call</option><option>Text</option><option>Email</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us about your ideal move-in date, must-haves, or questions about all bills paid."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%">Request a Tour &rarr;</button>
+      <p class="fine">By submitting you agree to be contacted about availability. Equal Housing Opportunity.</p>
+    </div>
+  </form>`;
+
+document.getElementById("inquiry").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const f = e.target;
+  const v = (n) => (f.elements[n] && f.elements[n].value) || "";
+  const body =
+    "Full name: " + v("full_name") + "\n" +
+    "Email: " + v("email") + "\n" +
+    "Phone: " + v("phone") + "\n" +
+    "Property of interest: " + v("property") + "\n" +
+    "Floor plan: " + v("floor_plan") + "\n" +
+    "Preferred contact: " + v("contact_method") + "\n" +
+    "Move-in date: " + (v("move_in_date") || "Flexible") + "\n\n" +
+    v("message");
+  const href = "mailto:info@apartmentsdfw.com?subject=" +
+    encodeURIComponent("Tour inquiry — " + v("property")) + "&body=" + encodeURIComponent(body);
+
+  document.getElementById("form-slot").innerHTML = `
+    <div class="thanks">
+      <p class="eyebrow">Inquiry Ready</p>
+      <h2>Thank you, ${(v("full_name").split(" ")[0] || "there")}.</h2>
+      <p>Your email app will open with your inquiry filled in — just press send and our leasing team will reply within one business day. Prefer to talk now?</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="tel:+18172654677">(817) 265-4677</a>
+        <a class="btn btn-outline" href="sms:+18172654677">Text Us Now</a>
+      </div>
+      <p style="margin-top:20px;font-size:11px"><a href="#" id="again" style="text-transform:uppercase;letter-spacing:.2em;font-weight:700;font-size:10px">Send another inquiry</a></p>
+    </div>`;
+  window.location.href = href;
+});
+
+/* lightbox */
+const lb = document.getElementById("lightbox");
+const lbImg = document.getElementById("lb-img");
+document.addEventListener("click", (e) => {
+  const fig = e.target.closest("figure[data-full]");
+  if (fig) { lbImg.src = fig.dataset.full; lbImg.alt = fig.querySelector("img").alt; lb.classList.add("open"); }
+  if (e.target.id === "again") { e.preventDefault(); location.reload(); }
+});
+document.getElementById("lb-close").addEventListener("click", () => lb.classList.remove("open"));
+lb.addEventListener("click", (e) => { if (e.target === lb) lb.classList.remove("open"); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") lb.classList.remove("open"); });
+
+/* hash routing */
+const pages = ["home", "arlington-village", "property-2", "contact"];
+function route() {
+  const id = (location.hash || "#home").replace("#", "");
+  const target = pages.includes(id) ? id : "home";
+  document.querySelectorAll(".page").forEach((el) => el.classList.remove("active"));
+  document.getElementById("page-" + target).classList.add("active");
+  document.querySelectorAll("#nav-links a").forEach((a) => {
+    a.classList.toggle("active", a.getAttribute("href") === "#" + target);
+  });
+  document.getElementById("mobile-menu").classList.remove("open");
+  window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+}
+window.addEventListener("hashchange", route);
+route();
+
+/* header scroll + mobile menu */
+const header = document.getElementById("site-header");
+const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 12);
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+document.getElementById("burger").addEventListener("click", () => {
+  document.getElementById("mobile-menu").classList.toggle("open");
+});
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
